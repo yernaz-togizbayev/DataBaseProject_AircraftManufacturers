@@ -5,40 +5,40 @@ Die Unternehmen arbeiten auf verschiede Projekte (eindeutige Projektnummer, Dead
 ![image](https://user-images.githubusercontent.com/71610255/219408134-dc276a15-4f9b-4b8a-9052-fc382caa043e.png)
 
 ### Milestone 2: Logical Design
-```**Unternehmen** (UnternehmensID, Unternehmensname, Land)
+``` Unternehmen (UnternehmensID, Unternehmensname, Land)
   PK: UnternehmensID, Unternehmensname
   
-**Mitarbeiter** (MitarbeiterID, Vorname, Nachname, Geburtsdatum, Geschlecht)
+Mitarbeiter (MitarbeiterID, Vorname, Nachname, Geburtsdatum, Geschlecht)
   PK: MitarbeiterID
   FK: Mitarbeiter.Unternehmensname <> Unternehmen.Name
   
-**Automatisierungstechniker** (AutomatisierungstechnikerID, Gehalt, E-Mail, Laptop)
+Automatisierungstechniker (AutomatisierungstechnikerID, Gehalt, E-Mail, Laptop)
   PK: AutomatisierungstechnikerID
   FK: Automatisierungstechniker.AutomatisierungstechnikerID <> Mitarbeiter.MitarbeiterID
   
-**Konstrukteur** (KonstrukteurID, SV-Nummer, Ausrüstung, Ausbildung)
+Konstrukteur (KonstrukteurID, SV-Nummer, Ausrüstung, Ausbildung)
   PK:KonstrukteurID
   FK:Konstrukteur.KonstrukteurID <> Mitarbeiter.MitarbeiterID
   
-**Projekt** (Unternehmensname, Projektnummer, Projektname, Budget, Deadline)
+Projekt (Unternehmensname, Projektnummer, Projektname, Budget, Deadline)
   PK: (Unternehmensname, Projektnummer)
   FK: Projekt.Unternehmensname <> Unternehmen.Name
   
-**Flugzeug** (Unternehmensname, Projektnummer, ObjektID, Model, Groesse)
+Flugzeug (Unternehmensname, Projektnummer, ObjektID, Model, Groesse)
   PK: ObjektID
   FK: Flugzeug.(Unternehmensname, Projektnummer) <> Projekt.(Unternehmensname, Projektnummer)
   
-**Prüfanlage** (Unternehmensname, Projektnummer, Prüfanlagennummer, Werkzeug, Aufsichtsperson)
+Prüfanlage (Unternehmensname, Projektnummer, Prüfanlagennummer, Werkzeug, Aufsichtsperson)
   PK: Prüfanlagennummer
   FK: Prüfanlage.(Unternehmensname,Projektnummer) <> Projekt.(Unternehmensname,Projektnummer)
   
-**Herstellung** (Unternehmensname, Projektnummer, Materialnummer, KonstruktuerID, Verbrauchszeit)
+Herstellung (Unternehmensname, Projektnummer, Materialnummer, KonstruktuerID, Verbrauchszeit)
   PK: (Unternehmensname, Projektnummer)
   FK: Herstellung.KonstrukteurID <> Konstrukteur.KonstrukteurID,
       Herstellung.ObjektID <> Flugzeug.ObjektID,
       Herstellung.(Unternehmensname, Projektnummer) <> Flugzeug.(Unternehmensname, Projektnummer)
 
-**Automatisierung** (AutomatisierungstechnikerID, Unternehmensname, Projektnummer, Prüfanlagennummer)
+Automatisierung (AutomatisierungstechnikerID, Unternehmensname, Projektnummer, Prüfanlagennummer)
   PK: (Unternehmensname, Projektnummer)
   FK: Automatisierung.AutomatisierungstechnikerID <> Automatisierungstechniker.AutomatisierungstechnikerID,
   Automatisierung.Prüfanlagennummer <> Prüfanlage.Prüfanlagennummer,
