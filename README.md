@@ -73,6 +73,7 @@ Pruefanlagennummer wurde auch automatisch generiert, mittels randomHelper.getRan
 
 ##### PHP
 (Reference zum [Hintergrundsbild](https://www.lockheedmartin.com/content/dam/lockheed-martin/eo/photo/yourmission/1820_LM_F35_SIDE_MISSION_MARKS.jpg))
+
 Es wurde eine einfache Webseite entwickelt mit allen benötigten Funktionalitäten. Damit es nicht zu
 viele Tabellen auf eine Seite erscheinen, wurde alle Tabelle ‚aufklappbar‘ implementiert mit dem
 HTML-Befehl `<details>`.
