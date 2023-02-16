@@ -42,8 +42,8 @@ Herstellung (Unternehmensname, Projektnummer, Materialnummer, KonstruktuerID, Ve
 Automatisierung (AutomatisierungstechnikerID, Unternehmensname, Projektnummer, Prüfanlagennummer)
   PK: (Unternehmensname, Projektnummer)
   FK: Automatisierung.AutomatisierungstechnikerID <> Automatisierungstechniker.AutomatisierungstechnikerID,
-  Automatisierung.Prüfanlagennummer <> Prüfanlage.Prüfanlagennummer,
-      Automatiserung.(Unternehmensname, Projektnummer) <> Prüfanlage.(Unternehmensname, Projektnummer)
+      Automatisierung.Prüfanlagennummer <> Prüfanlage.Prüfanlagennummer,
+      Automatisierung.(Unternehmensname, Projektnummer) <> Prüfanlage.(Unternehmensname, Projektnummer)
 ```
 
 ### Milestone 3: Implementation
