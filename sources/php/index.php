@@ -41,6 +41,12 @@ if(isset($_GET['NACHNAME'])){
     $nachname = $_GET['NACHNAME'];
 }
 
+$employee_company = '';
+if(isset($_GET['UNTERNEHMENSNAME'])){
+    $employee_company = $_GET['UNTERNEHMENSNAME'];
+}
+
+
 
 //Get parameters for Automation Engineer
 $automationengineerid = '';
@@ -57,9 +63,9 @@ if(isset($_GET['KONSTRUKTEUR_ID'])){
 
 
 //Get parameters for Project
-$companyname = '';
+$project_company = '';
 if(isset($_GET['UNTERNEHMENSNAME'])){
-    $companyname = $_GET['UNTERNEHMENSNAME'];
+    $project_company = $_GET['UNTERNEHMENSNAME'];
 }
 
 $projectnumber = '';
@@ -70,12 +76,22 @@ if(isset($_GET['PROJEKTNUMMER'])){
 
 
 //Get parameters for Aircraft Component
+$aircraft_company = '';
+if(isset($_GET['UNTERNEHMENSNAME'])){
+    $aircraft_company = $_GET['UNTERNEHMENSNAME'];
+}
+
 $objectnumber = '';
 if(isset($_GET['OBJEKTID'])){
     $objectnumber = $_GET['OBJEKTID'];
 }
 
 //Get parameters for Test Facility
+$testfacility_company = '';
+if(isset($_GET['UNTERNEHMENSNAME'])){
+    $testfacility_company = $_GET['UNTERNEHMENSNAME'];
+}
+
 $projectnumber_testfacility = '';
 if(isset($_GET['PROJEKTNUMMER_FUER_PRUEFANLAGE'])){
     $projectnumber_testfacility = $_GET['PROJEKTNUMMER_FUER_PRUEFANLAGE'];
@@ -88,12 +104,22 @@ if(isset($_GET['PRUEFANLAGENNUMMER'])){
 
 
 //Get parameters for Production
+$production_company = '';
+if(isset($_GET['UNTERNEHMENSNAME'])){
+    $production_company = $_GET['UNTERNEHMENSNAME'];
+}
+
 $projectnumber_production = '';
 if(isset($_GET['PROJEKTNUMMER_FUER_FLUGZEUG'])){
     $projectnumber_production = $_GET['PROJEKTNUMMER_FUER_FLUGZEUG'];
 }
 
 //Get parameters for Automation
+$automation_company = '';
+if(isset($_GET['UNTERNEHMENSNAME'])){
+    $automation_company = $_GET['UNTERNEHMENSNAME'];
+}
+
 $projectnumber_automation = '';
 if(isset($_GET['PROJEKTNUMMER_FUER_PRUEFANLAGE'])){
     $projectnumber_automation = $_GET['PROJEKTNUMMER_FUER_PRUEFANLAGE'];
@@ -104,19 +130,31 @@ if(isset($_GET['PRUEFANLAGENNUMMER'])){
     $testfacilityid_automation = $_GET['PRUEFANLAGENNUMMER'];
 }
 
+//Get parameters for All Automation Engineers
+$automationengineer_company = '';
+if(isset($_GET['UNTERNEHMENSNAME'])){
+    $automationengineer_company = $_GET['UNTERNEHMENSNAME'];
+}
+
+//Get parameters for All Design Engineers
+$designengineer_company = '';
+if(isset($_GET['UNTERNEHMENSNAME'])){
+    $designengineer_company = $_GET['UNTERNEHMENSNAME'];
+}
+
 
 //Fetch data from database
 $unternehmen_array = $database->selectFromUnternehmenWhere($id, $name, $country);
-$mitarbeiter_array = $database->selectFromMitarbeiterWhere($mitarbeiterid, $companyname);
+$mitarbeiter_array = $database->selectFromMitarbeiterWhere($mitarbeiterid, $employee_company);
 $automationengineer_array = $database->selectFromAutomationEngineerWhere($automationengineerid);
 $designengineer_array = $database->selectFromDesignEngineerWhere($designengineerid);
-$project_array = $database->selectFromProjectWhere($companyname, $projectnumber);
-$aircraft_array = $database->selectFromAircraftWhere($companyname, $objectnumber);
-$testfacility_array = $database->selectFromTestFacilityWhere($companyname,$projectnumber_testfacility, $testfacilitynumber);
-$production_array = $database->selectFromProductionWhere($companyname, $projectnumber_production, $objectnumber);
-$automation_array = $database->selectFromAutomationWhere($companyname, $projectnumber_automation, $testfacilitynumber);
-$allautomationengineers_array = $database->selectFromAllAutomationEngineersWhere($nachname, $vorname, $companyname, $automationengineerid);
-$alldesignengineers_array = $database->selectFromAllDesignEngineersWhere($nachname, $vorname, $companyname, $designengineerid);
+$project_array = $database->selectFromProjectWhere($project_company, $projectnumber);
+$aircraft_array = $database->selectFromAircraftWhere($aircraft_company, $objectnumber);
+$testfacility_array = $database->selectFromTestFacilityWhere($testfacility_company,$projectnumber_testfacility, $testfacilitynumber);
+$production_array = $database->selectFromProductionWhere($production_company, $projectnumber_production, $objectnumber);
+$automation_array = $database->selectFromAutomationWhere($automation_company, $projectnumber_automation, $testfacilitynumber);
+$allautomationengineers_array = $database->selectFromAllAutomationEngineersWhere($nachname, $vorname, $automationengineer_company, $automationengineerid);
+$alldesignengineers_array = $database->selectFromAllDesignEngineersWhere($nachname, $vorname, $designengineer_company, $designengineerid);
 ?>
 
 <html>
@@ -124,7 +162,7 @@ $alldesignengineers_array = $database->selectFromAllDesignEngineersWhere($nachna
     <title>DBS</title>
 </head>
 
-<body>
+<body background="https://www.lockheedmartin.com/content/dam/lockheed-martin/eo/photo/yourmission/1820_LM_F35_SIDE_MISSION_MARKS.jpg">
 <br>
 <h1><center>Aircraft Manufacturers</center></h1>
 
@@ -357,7 +395,7 @@ $alldesignengineers_array = $database->selectFromAllDesignEngineersWhere($nachna
         
         <div>
             <label for="name">Company Name:</label>
-            <input id="name" name="UNTERNEHMENSNAME" type="text" value='<?php echo $companyname; ?>' maxlength="100">
+            <input id="name" name="UNTERNEHMENSNAME" type="text" value='<?php echo $employee_company; ?>' maxlength="100">
         </div>
         <br>
         <!-- Submit button -->
@@ -728,7 +766,7 @@ $alldesignengineers_array = $database->selectFromAllDesignEngineersWhere($nachna
         <!-- Company Name textbox:-->
         <div>
             <label for="companyname">Company Name:</label>
-            <input id="companyname" name="UNTERNEHMENSNAME" type="text" value='<?php echo $companyname; ?>' maxlength="100">
+            <input id="companyname" name="UNTERNEHMENSNAME" type="text" value='<?php echo $project_company; ?>' maxlength="100">
         </div>
         <br>
         
@@ -878,7 +916,7 @@ $alldesignengineers_array = $database->selectFromAllDesignEngineersWhere($nachna
         <!-- ID textbox:-->
         <div>
             <label for="companyname">Company Name:</label>
-            <input id="companyname" name="UNTERNEHMENSNAME" type="text" value='<?php echo $companyname; ?>' maxlength="100">
+            <input id="companyname" name="UNTERNEHMENSNAME" type="text" value='<?php echo $aircraft_company; ?>' maxlength="100">
         </div>
         <br>
 
@@ -1017,7 +1055,7 @@ $alldesignengineers_array = $database->selectFromAllDesignEngineersWhere($nachna
         <!-- Company Name textbox:-->
         <div>
             <label for="companyname">Company Name:</label>
-            <input id="companyname" name="UNTERNEHMENSNAME" type="text" value='<?php echo $companyname; ?>' maxlength="100">
+            <input id="companyname" name="UNTERNEHMENSNAME" type="text" value='<?php echo $testfacility_company; ?>' maxlength="100">
         </div>
         <br>
 
@@ -1161,7 +1199,7 @@ $alldesignengineers_array = $database->selectFromAllDesignEngineersWhere($nachna
         <!-- Company Name textbox:-->
         <div>
             <label for="companyname">Company Name:</label>
-            <input id="companyname" name="UNTERNEHMENSNAME" type="text" value='<?php echo $companyname; ?>' maxlength="100">
+            <input id="companyname" name="UNTERNEHMENSNAME" type="text" value='<?php echo $production_company; ?>' maxlength="100">
         </div>
         <br>
 
@@ -1299,7 +1337,7 @@ $alldesignengineers_array = $database->selectFromAllDesignEngineersWhere($nachna
     <form method="get">
         <div>
             <label for="companyname">Company Name:</label>
-            <input id="companyname" name="UNTERNEHMENSNAME" type="text" value='<?php echo $companyname; ?>' maxlength="100">
+            <input id="companyname" name="UNTERNEHMENSNAME" type="text" value='<?php echo $automation_company; ?>' maxlength="100">
         </div>
         <br>
 
@@ -1310,7 +1348,7 @@ $alldesignengineers_array = $database->selectFromAllDesignEngineersWhere($nachna
         <br>
         <div>
             <label for="testfacilityid">Test Facility No:</label>
-            <input id="testfacilityid" name="PRUEFANLAGENNUMMER" type="number" value='<?php echo $testfacility; ?>' min="0">
+            <input id="testfacilityid" name="PRUEFANLAGENNUMMER" type="number" value='<?php echo $testfacilityid_automation; ?>' min="0">
         </div>
         <br>
 
@@ -1372,7 +1410,7 @@ $alldesignengineers_array = $database->selectFromAllDesignEngineersWhere($nachna
         <br>
         <div>
             <label for="companyname">Company Name:</label>
-            <input id="companyname" name="UNTERNEHMENSNAME" type="text" value='<?php echo $companyname; ?>' maxlength="100">
+            <input id="companyname" name="UNTERNEHMENSNAME" type="text" value='<?php echo $automationengineer_company; ?>' maxlength="100">
         </div>
         <br>
 
@@ -1439,7 +1477,7 @@ $alldesignengineers_array = $database->selectFromAllDesignEngineersWhere($nachna
 
         <div>
             <label for="companyname">Company Name:</label>
-            <input id="companyname" name="UNTERNEHMENSNAME" type="text" value='<?php echo $companyname; ?>' maxlength="100">
+            <input id="companyname" name="UNTERNEHMENSNAME" type="text" value='<?php echo $designengineer_company; ?>' maxlength="100">
         </div>
         <br>
 
