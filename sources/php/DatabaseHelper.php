@@ -593,15 +593,15 @@ class DatabaseHelper
 
     // Production
     // INSERT
-    public function insertIntoProduction($companyname, $projectnumber_production, $materialid, $designengineerid, $productiontime)
+    public function insertIntoProduction($companyname, $projectnumber_production, $objectid, $designengineerid, $productiontime)
     {
         $sql = "INSERT INTO HERSTELLUNG (
                 UNTERNEHMENSNAME,
-                PROJEKTNUMMER_FUER_FLUGZEUGKOMPONENTE,
-                MATERIALNUMMER,
+                PROJEKTNUMMER_FUER_FLUGZEUG,
+                OBJEKTID,
                 KONSTRUKTEUR_ID,
                 HERSTELLUNGSDAUER)
-                VALUES ('{$companyname}', '{$projectnumber_production}', '{$materialid}', '{$designengineerid}', '{$productiontime}')";
+                VALUES ('{$companyname}', '{$projectnumber_production}', '{$objectid}', '{$designengineerid}', '{$productiontime}')";
 
         $statement = oci_parse($this->conn, $sql);
         $success = oci_execute($statement) && oci_commit($this->conn);
@@ -611,19 +611,29 @@ class DatabaseHelper
 
 
     // selectFromTestFacilityWhere
-    public function selectFromProductionWhere($companyname, $projectnumber_production, $materialnumber)
+    public function selectFromProductionWhere($companyname, $projectnumber_production, $objectid)
     {
-        if ($companyname && $projectnumber_production && $materialnumber)
+        if ($companyname && $projectnumber_production && $objectid)
         {
             $sql = "SELECT * FROM HERSTELLUNG
                 WHERE upper(unternehmensname) LIKE upper('%{$companyname}%')
-                AND PROJEKTNUMMER_FUER_FLUGZEUGKOMPONENTE LIKE '%{$projectnumber_production}%'
-                AND MATERIALNUMMER LIKE '%{$materialnumber}%'";
+                AND PROJEKTNUMMER_FUER_FLUGZEUG LIKE '%{$projectnumber_production}%'
+                AND OBJEKTID LIKE '%{$objectid}%'";
         }
         elseif ($companyname)
         {
             $sql = "SELECT * FROM HERSTELLUNG
                 WHERE upper(unternehmensname) LIKE upper('%{$companyname}%')";
+        }
+        elseif ($projectnumber_production)
+        {
+            $sql = "SELECT * FROM HERSTELLUNG
+                WHERE upper(PROJEKTNUMMER_FUER_FLUGZEUG) LIKE upper('%{$projectnumber_production}%')";
+        }
+        elseif ($objectid)
+        {
+            $sql = "SELECT * FROM HERSTELLUNG
+                WHERE upper(OBJEKTID) LIKE upper('%{$objectid}%')";
         }
         else
         {
@@ -698,6 +708,11 @@ class DatabaseHelper
                 WHERE upper(unternehmensname) LIKE upper('%{$companyname}%')
                 AND PROJEKTNUMMER_FUER_PRUEFANLAGE LIKE '%{$projectnumber_automation}%'
                 AND PRUEFANLAGENNUMMER LIKE '%{$testfacilityid_automation}%'";
+        }
+        elseif ($companyname)
+        {
+            $sql = "SELECT * FROM AUTOMATISIERUNG
+                WHERE upper(unternehmensname) LIKE upper('%{$companyname}%')";
         }
         else
         {
