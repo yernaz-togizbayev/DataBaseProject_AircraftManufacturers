@@ -50,6 +50,8 @@ Automatisierung (AutomatisierungstechnikerID, Unternehmensname, Projektnummer, P
 #### SQL
 Die Flugzeugunternehmensliste wurde aus der Website [Aircraft database (aircraft-database.com)](https://aircraft-database.com/) heruntergeladen, sowohl als SQL-Datei (AircraftManufacturersEntries.sql) mit „INSERT“ Befehlen, als auch als Excel Datei (.\\sources\\java\\resources\\aircraftcompanies.csv). Außer Tabellen, Proceduren, Sequencen und Triggern zu entwerfen, wurde noch 2 Views erstellt, mittels INNER JOIN, sodass man deutlich jeweiliger Automatisierungstechniker und Konstrukteur mit Vorname, Nachname, ID und Unternehmen sehen kann.
 
+
+
 #### Java
 Für das Einfügen von Mitarbeitern wurde zwei csv – Dateien erstellt und mit ausgedachten unterschiedlichen Vornamen und unterschiedlichen Nachnamen befüllt und durch doppelte Schleife durchiteriert und in die Tabelle hinzugefügt.
 
@@ -70,7 +72,8 @@ Die Flugzeugmodelle wurden aus der Website [Aircraft Models, Makers, and Countri
 
 Deadline von Projekten wurde automatisch mittels `randomHelper.getRandomInteger()` generiert und mittels SQL Befehl `TO_DATE()` in die Tabelle gesetzt.
 
-Pruefanlagennummer wurde auch automatisch generiert, mittels randomHelper.getRandomString().
+Pruefanlagennummer wurde auch automatisch generiert, mittels `randomHelper.getRandomString()`.
+
 
 
 ##### PHP
