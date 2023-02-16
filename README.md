@@ -9,6 +9,7 @@ Die Unternehmen arbeiten auf verschiede Projekte (eindeutige Projektnummer, Dead
   \nPK: UnternehmensID, Unternehmensname
   
 **Mitarbeiter** (MitarbeiterID, Vorname, Nachname, Geburtsdatum, Geschlecht)
+
   PK: MitarbeiterID
   FK: Mitarbeiter.Unternehmensname <> Unternehmen.Name
   
