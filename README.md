@@ -74,7 +74,7 @@ Pruefanlagennummer wurde auch automatisch generiert, mittels randomHelper.getRan
 ##### PHP
 Es wurde eine einfache Webseite entwickelt mit allen benötigten Funktionalitäten. Damit es nicht zu
 viele Tabellen auf eine Seite erscheinen, wurde alle Tabelle ‚aufklappbar‘ implementiert mit dem
-HTML-Befehl <details>.
+HTML-Befehl `<details>`.
 ![image](https://user-images.githubusercontent.com/71610255/219413644-da256a4a-b8a4-4869-ae70-89733650f9c4.png)
 
 Und wenn man eine von den benötigten Tabellen aufklappt, kann man in die Tabelle Einträge hinzufügen, bzw. von der Tabelle löschen, oder auch suchen.
