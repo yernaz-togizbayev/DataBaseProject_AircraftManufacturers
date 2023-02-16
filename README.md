@@ -6,10 +6,13 @@ Die Unternehmen arbeiten auf verschiede Projekte (eindeutige Projektnummer, Dead
 
 ### Milestone 2: Logical Design
 **Unternehmen** (UnternehmensID, Unternehmensname, Land)
+
   PK: UnternehmensID, Unternehmensname
   
 **Mitarbeiter** (MitarbeiterID, Vorname, Nachname, Geburtsdatum, Geschlecht)
+
   PK: MitarbeiterID
+
   FK: Mitarbeiter.Unternehmensname <> Unternehmen.Name
   
 **Automatisierungstechniker** (AutomatisierungstechnikerID, Gehalt, E-Mail, Laptop)
