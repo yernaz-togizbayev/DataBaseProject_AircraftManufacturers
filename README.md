@@ -53,7 +53,7 @@ Die Flugzeugunternehmensliste wurde aus der Website [Aircraft database (aircraft
 #### Java
 Für das Einfügen von Mitarbeitern wurde zwei csv – Dateien erstellt und mit ausgedachten unterschiedlichen Vornamen und unterschiedlichen Nachnamen befüllt und durch doppelte Schleife durchiteriert und in die Tabelle hinzugefügt.
 
-Die MitarbeiterIDs sind automatisch mittels SQL – Funktion ‚DBMS_RANDOM.STRING('x', 10)‘ als TRIGGER generiert.
+Die MitarbeiterIDs sind automatisch mittels SQL – Funktion `DBMS_RANDOM.STRING('x', 10)` als TRIGGER generiert.
 
 Für die Geburtstagseinträge wurde ebenfalls eine csv – Datei erstellt mit beliebigen Daten und zufälligerweise jedem Mitarbeiter zugewiesen.
 
@@ -68,7 +68,7 @@ Die Flugzeugmodelle wurden aus der Website [Aircraft Models, Makers, and Countri
   2. Production of ‚Model‘
   3. Maintenance of ‚Model‘
 
-Deadline von Projekten wurde automatisch mittels randomHelper.getRandomInteger() generiert und mittels SQL Befehl TO_DATE() in die Tabelle gesetzt.
+Deadline von Projekten wurde automatisch mittels `randomHelper.getRandomInteger()` generiert und mittels SQL Befehl `TO_DATE()` in die Tabelle gesetzt.
 
 Pruefanlagennummer wurde auch automatisch generiert, mittels randomHelper.getRandomString().
 
@@ -76,9 +76,7 @@ Pruefanlagennummer wurde auch automatisch generiert, mittels randomHelper.getRan
 ##### PHP
 (Reference zum [Hintergrundsbild](https://www.lockheedmartin.com/content/dam/lockheed-martin/eo/photo/yourmission/1820_LM_F35_SIDE_MISSION_MARKS.jpg))
 
-Es wurde eine einfache Webseite entwickelt mit allen benötigten Funktionalitäten. Damit es nicht zu
-viele Tabellen auf eine Seite erscheinen, wurde alle Tabelle ‚aufklappbar‘ implementiert mit dem
-HTML-Befehl `<details>`.
+Es wurde eine einfache Webseite entwickelt mit allen benötigten Funktionalitäten. Damit es nicht zu viele Tabellen auf eine Seite erscheinen, wurde alle Tabelle ‚aufklappbar‘ implementiert mit dem HTML-Befehl `<details>`.
 ![image](https://user-images.githubusercontent.com/71610255/219413644-da256a4a-b8a4-4869-ae70-89733650f9c4.png)
 
 Und wenn man eine von den benötigten Tabellen aufklappt, kann man in die Tabelle Einträge hinzufügen, bzw. von der Tabelle löschen, oder auch suchen.
