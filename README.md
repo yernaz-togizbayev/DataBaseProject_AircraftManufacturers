@@ -5,7 +5,8 @@ Die Unternehmen arbeiten auf verschiede Projekte (eindeutige Projektnummer, Dead
 ![image](https://user-images.githubusercontent.com/71610255/219408134-dc276a15-4f9b-4b8a-9052-fc382caa043e.png)
 
 ### Milestone 2: Logical Design
-``` Unternehmen (UnternehmensID, Unternehmensname, Land)
+```
+Unternehmen (UnternehmensID, Unternehmensname, Land)
   PK: UnternehmensID, Unternehmensname
   
 Mitarbeiter (MitarbeiterID, Vorname, Nachname, Geburtsdatum, Geschlecht)
