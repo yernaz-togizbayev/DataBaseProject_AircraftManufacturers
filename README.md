@@ -117,6 +117,7 @@ Located in `/php`:
   <img src="./docs/images/web-interface-extended.png" alt="Automation Engineer UI" width="1000"/>
   <figcaption><b>Figure:</b> Web interface for managing Automation Engineers</figcaption>
 </figure>
+
 ---
 
 ## 🧠 Learning Outcomes
