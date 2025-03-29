@@ -90,7 +90,7 @@ Located in `/php`:
   - Update salary/laptop for automation engineers
 
 <figure>
-  <img src="./docs/images/web-interface.png" alt="Web UI Screenshot" width="600"/>
+  <img src="./docs/images/web-interface.png" alt="Web UI Screenshot" width="800"/>
   <figcaption><b>Figure:</b> Screenshot of the collapsible web frontend</figcaption>
 </figure>
 
