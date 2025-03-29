@@ -34,7 +34,7 @@ Key relationships include:
 - Aircraft are maintained through test facilities and automation engineers
 
 <figure>
-  <img src="./docs/images/er-diagram.png" alt="ER Diagram" width="600"/>
+  <img src="./docs/images/er-diagram.png" alt="ER Diagram" width="1000"/>
   <figcaption><b>Figure:</b> Entity Relationship Diagram</figcaption>
 </figure>
 
