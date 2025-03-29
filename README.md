@@ -33,7 +33,10 @@ Key relationships include:
 - Projects involve employees and produce aircraft
 - Aircraft are maintained through test facilities and automation engineers
 
-![image](https://user-images.githubusercontent.com/71610255/219408134-dc276a15-4f9b-4b8a-9052-fc382caa043e.png)
+<figure>
+  <img src="./docs/images/er-diagram.png" alt="ER Diagram" width="600"/>
+  <figcaption><b>Figure:</b> Entity Relationship Diagram</figcaption>
+</figure>
 
 ---
 
